@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Security Project</title>
+</head>
+<body>
+
+	<header>
+		<h1>Security project</h1>
+	</header>
+
+	<script type="text/javascript">
+	function displayThreatInfo(id, btn) {
+		var tmp = document.getElementById(id);
+
+		if (tmp.style.display == 'block')
+			tmp.style.display = 'none';
+		else
+			tmp.style.display = 'block'
+	}
+	</script>
+
+	<nav>
+		<a href="#" onclick="displayThreatInfo('tht1', this); return false;">Threat 1</a> |
+		<a href="#" onclick="displayThreatInfo('tht2', this); return false;">Threat 2</a> |
+		<a href="#" onclick="displayThreatInfo('tht3', this); return false;">Threat 3</a> |
+		<a href="#" onclick="displayThreatInfo('tht4', this); return false;">Th1reat 4</a>
+	</nav>
+	<section>
+		<div>
+			<p style="font-style: italic;">Select the Threats to toggle the description.</p>
+		</div>
+		<div id="tht1" style="display: none;">
+			<h4>Threat 1</h4>
+			<p>Description of the threat</p>
+			<a href="#">Test the Threat</a>
+		</div>
+		<div id="tht2" style="display: none;">
+			<h4>Threat 2</h4>
+			<p>Description of the threat</p>
+			<a href="#">Test the Threat</a>
+		</div>
+		<div id="tht3" style="display: none;">
+			<h4>Threat 3</h4>
+			<p>Description of the threat</p>
+			<a href="#">Test the Threat</a>
+		</div>
+		<div id="tht4" style="display: none;">
+			<h4>Threat 4</h4>
+			<p>Description of the threat</p>
+			<a href="#">Test the Threat</a>
+		</div>
+	</section>
+</body>
+</html>
