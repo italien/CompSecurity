@@ -25,31 +25,71 @@
 		<a href="#" onclick="displayThreatInfo('tht1', this); return false;">Threat 1</a> |
 		<a href="#" onclick="displayThreatInfo('tht2', this); return false;">Threat 2</a> |
 		<a href="#" onclick="displayThreatInfo('tht3', this); return false;">Threat 3</a> |
-		<a href="#" onclick="displayThreatInfo('tht4', this); return false;">Th1reat 4</a>
+		<a href="#" onclick="displayThreatInfo('tht4', this); return false;">Threat 4</a> |
+		<a href="#" onclick="displayThreatInfo('tht5', this); return false;">Threat 5</a> |
+		<a href="#" onclick="displayThreatInfo('tht6', this); return false;">Threat 6</a>
 	</nav>
 	<section>
 		<div>
 			<p style="font-style: italic;">Select the Threats to toggle the description.</p>
 		</div>
 		<div id="tht1" style="display: none;">
-			<h4>Threat 1</h4>
-			<p>Description of the threat</p>
-			<a href="#">Test the Threat</a>
+			<h4>Injection SQL</h4>
+			<p>Injection sql occur when untrusted data is sent to an interpreter as part of a command orquery.<br/>
+			The attacker's hostile data can trick the interpreter into executing unintended commands or accessing to sensitive data without authorization.<br/>
+			We choosed to implement this different leaks : <br/>
+				<ul>
+					<li>URL Based SQL Injection Tutorial</li>
+					<li>Cookie-Based SQL Injection</li>
+					<li>SQL Injection Through HTTP Headers</li>
+				</ul>
+			</p>
+			<a href="InjectionSQL.html">Test the Threat</a>
 		</div>
 		<div id="tht2" style="display: none;">
-			<h4>Threat 2</h4>
-			<p>Description of the threat</p>
-			<a href="#">Test the Threat</a>
+			<h4>Broken Authentification and Session Management</h4>
+			<p>
+				Sometimes application functions related  to authentification and session management are not implemented in the good way.<br/>  
+				This allowing attackers to compromise passwords, sessions token etc and steal the users' identities.<br/>
+				With this the attachers can access to acount user and can do what  they want.
+			</p>
+			<a href="BrokenAuthSessionMgt.html">Test the Threat</a>
 		</div>
 		<div id="tht3" style="display: none;">
-			<h4>Threat 3</h4>
-			<p>Description of the threat</p>
-			<a href="#">Test the Threat</a>
+			<h4>Cross-Site Scripting (XSS)</h4>
+			<p>
+				XSS flaws appear when an application takes untrusted data and sends it to a web browserwithout any verification , proper validation or escaping.<br/> 
+				The attackers allow to execute some scripts (like javascript script) in the user's browser which can hijack user sessions, redirect to malicious web sites or deface web sites.<br/>
+			</p>
+			<a href="XSS.html">Test the Threat</a>
 		</div>
 		<div id="tht4" style="display: none;">
-			<h4>Threat 4</h4>
-			<p>Description of the threat</p>
-			<a href="#">Test the Threat</a>
+			<h4>Sensitive Data exposure</h4>
+			<p>
+				Often web applications don't protect sensitive data in the right way such as credit cards etc.<br/>
+				The attackers can steal this data or modidy them.<br/>
+				This conduct to a credit card fraud, identity theft ...<br/> 
+				Sensitive data need extra protection as encryption at rest or in transit, special precautions when exchanged with the browser. 
+			</p>
+			<a href="SensitiveDataExposure.html">Test the Threat</a>
+		</div>
+
+		<div id="tht5" style="display: none;">
+			<h4>Unvalidated  Redirects and forwards</h4>
+			<p>
+				Website often redirect and forward users to other websites (and pages) but use untrusted data to dertermine the destination pages. <br/> 
+				Attackers without good validation can access to unauthorized pages, redirect users to malwares websites orphishing .
+			</p>
+			<a href="UnvalidatedRedirects.html">Test the Threat</a>
+		</div>
+		<div id="tht6" style="display: none;">
+			<h4>File upload vulnerabilities</h4>
+			<p>
+				Uploading files is a necessity for every web application but it is also like opening another door for a malicious user to compromise your server. <br/>
+			 	Every atatckers want to find a way to execute theire own code onto a victim systems. 
+			 	Using an uploaded file upload accomplishes this first step. <br/>
+			 </p>
+			<a href="FileUpload.html">Test the Threat</a>
 		</div>
 	</section>
 </body>
