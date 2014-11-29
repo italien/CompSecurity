@@ -74,7 +74,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 <body style="background-repeat:no-repeat "
 background="Image/PAYMENT.jpg"/>
-<FORM method=post action="Payment3.php">
+<FORM method=post action="Payment1.php">
 <TABLE BORDER=0>
 <TR>
 
