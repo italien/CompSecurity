@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:ice="http://ns.adobe.com/incontextediting">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Card Payment</title>
+<title>Pago con tarjeta</title>
 <script src="includes/ice/ice.js" type="text/javascript"></script>
 <script type="text/javascript">
 function MM_jumpMenu(targ,selObj,restore){ //v3.0
@@ -16,8 +16,8 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 	width:95px;
 	height:26px;
 	z-index:1;
-	left: 928px;
-	top: 7px;
+	left: 926px;
+	top: 6px;
 }
 #apDiv2 {
 	position:absolute;
@@ -73,7 +73,7 @@ function MM_jumpMenu(targ,selObj,restore){ //v3.0
 
 
 <body style="background-repeat:no-repeat "
-background="Image/PAYMENT.jpg"/>
+background="Image/Spanish.jpg"/>
 <FORM method=post action="Payment1.php">
 <TABLE BORDER=0>
 <TR>
@@ -94,20 +94,18 @@ background="Image/PAYMENT.jpg"/>
 	<TD>
       <div id="apDiv6"><INPUT type=text name="CVV" size="8" maxlength="3"></div>
 </TR>
-<TR>
 
-	<TD>
+<TR>
+  <TD COLSPAN=2>
+    <div id="apDiv8"><INPUT type="submit" style="background-color:#066" value="ENVIAR PAGO" > </div>
+    </TD>
+    <TR>
+    <TD>
       <div id="apDiv1"><SELECT name="Language">
 		<OPTION VALUE="Spanish">Spanish</OPTION>
 		<OPTION VALUE="English">English</OPTION>
 	</SELECT>
 	</TD></div>
-</TR>
-
-<TR>
-  <TD COLSPAN=2>
-    <div id="apDiv8"><INPUT type="submit" style="background-color:#066" value="SUBMIT PAY" > </div>
-    </TD>
 </TR>
 </TABLE>
 </FORM>

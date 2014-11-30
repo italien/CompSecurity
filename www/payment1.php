@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Documento sin título</title>
+<title>Sensitive data exposure</title>
 </head>
 
 <body>
@@ -10,32 +10,42 @@
 <p>&nbsp;</p>
 <p>-----------------------------------------------------------------------</p>
 <p>&nbsp;</p>
-<p>Sensitive data Exposure sent to hacker e-mail</p>
+<p>Sensitive data Exposure has already been taken by the attacker:</p>
 <FORM method=post action= action="Payment.php">
   <TABLE BORDER=0>
 <TR>
-	<TD>CARD</TD>
+	<TD>Card Number</TD>
 	<TD>
 	1234567890123456
 	</TD>
 </TR>
 
 <TR>
-	<TD>Expiration</TD>
+	<TD>Expiration date</TD>
 	<TD>
-      <INPUT type=text name="mm" value="11" size="6" maxlength="2" />
-      <INPUT type=text name="yy" value="22" size="6" maxlength="2">
+      <INPUT type=text name="mm" value="11" size="4" maxlength="2" />
+      <INPUT type=text name="yy" value="22" size="4" maxlength="2">
 </TR>
 <TR>
 	<TD>CVV</TD>
 	<TD>
-      <INPUT type=text name="CVV" value="123" size="8" maxlength="3">
+      <INPUT type=text name="CVV" value="123" size="4" maxlength="3">
 </TR>
 
 <TR>
-  <TD COLSPAN=2>
-    ALVARO FERNANDEZ VISA CARD</TD>
+  <TD>
+    Username
+    <TD>
+     ALVARO FERNANDEZ
+    </TD>
 </TR>
+<TR>
+	<TD>Card Type</TD>
+	<TD>
+	VISA
+    </TD>
+</TR>
+
 </TABLE>
 </FORM>
 </body>
