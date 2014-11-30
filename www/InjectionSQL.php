@@ -13,7 +13,9 @@
 		<header>
 			<h1>Injection SQL</h1>
 		</header>
-		<h4>SQL Injection</h4>
+		<h4>SQL Injection Through HTTP Headers</h4>
+		<p>	Request Sql: $request = $bdd->query("SELECT * FROM Authentification WHERE Login='$login' AND password='$password' AND Ip='".$headers["Host"]."'"); <br/> 
+			$data = $request->fetch(); <br/> $request->closeCursor(); <br/> 
 		<form action="./auth.php" method="POST">
 	    	<table>
 		        <tr>
@@ -30,6 +32,9 @@
 	    	</table> 
 		</form>
 		<h4>SQL Injection via Url</h4>
+		<p>Request Sql: 				
+			$request = mysql_query("select Login, Password from Authentification where Id='$id'") or die(mysql_error()); <br/>
+			$data = mysql_fetch_row($request);</p>
 		<?php
 			mysql_connect("localhost", "root", "root") or die (mysql_error());
 			mysql_select_db("ComputerSecurity") or die(mysql_error());
@@ -50,6 +55,9 @@
 			}
 		?>
 		<h4>Cookie sql Injection</h4>
+		<p>Request Sql : $id_cookie = $_COOKIE['ID']; <br/>
+			$request = $bdd->query("SELECT Login FROM Authentification WHERE ID='$id_cookie'") or die (print_r($bdd->errorInfo())); <br/>
+			$data = $request->fetch();</p>
 		<?php
 			try
 			{
@@ -76,6 +84,9 @@
 			</ul>
 		</p>
 		<h4>Safe HTTP headears about SQL Injection</h4>
+		<p>Prepared request sql : $request = $bdd->prepare("SELECT * FROM Authentification WHERE Login = ? AND password = ? AND Ip = ?"); <br/>
+			$request->execute(array($login, $password, $headers["Host"])); <br/>
+			$data = $request->fetch();</p>
 		<form action="./authSafe.php" method="POST">
 	    	<table>
 		        <tr>
@@ -92,6 +103,16 @@
 	    	</table> 
 		</form>
 		<h4>Secure Url about SQL Injection</h4>
+		<p>Request sql where data pass by an "anti-script" injection: <br/>
+			$id = mysql_real_escape_string($id); <br/>
+			$bad_words = array('union','order by','select','from','where'); <br/>
+			foreach($bad_words as $word){ <br/>
+				if(strstr(strtolower($id),$word)) <br/>
+					die('SQL Injection Attempt detected');<br/>
+				}<br/>
+			$request = mysql_query("select Login, Password from Authentification where Id='$id'") or die(mysql_error());<br/>
+			$data = mysql_fetch_row($request);<br/>
+		</p>
 		<?php
 			mysql_connect("localhost", "root", "root") or die (mysql_error());
 			mysql_select_db("ComputerSecurity") or die(mysql_error());
@@ -116,6 +137,11 @@
 			}
 		?>
 		<h4>Secure Cookie about sql Injection</h4>
+		<p>Request sql where we convert the data : 
+			$id_cookie = intval($_COOKIE['idSafe']); <br/>
+			$request = $bdd->query("SELECT Login FROM Authentification WHERE ID='$id_cookie'") or die (print_r($bdd->errorInfo())); <br/>
+			$data = $request->fetch(); <br/>
+		<p>
 		<?php
 			try
 			{
