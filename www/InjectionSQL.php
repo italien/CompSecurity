@@ -13,7 +13,7 @@
 		<header>
 			<h1>Injection SQL</h1>
 		</header>
-		<h4>SQL Injection Through HTTP Headers</h4>
+		<h4>SQL Injection</h4>
 		<form action="./auth.php" method="POST">
 	    	<table>
 		        <tr>

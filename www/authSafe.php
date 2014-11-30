@@ -1,6 +1,7 @@
 <?php
 	$login = $_POST["LoginSafe"];
 	$password = $_POST["PasswordSafe"];
+	$headers = apache_request_headers();
 
 	try
 	{
@@ -12,8 +13,8 @@
 	}
 	if ($login != "" && $password != "")
 	{
-		$request = $bdd->prepare("SELECT * FROM Authentification WHERE Login = ? AND password = ?");
-		$request->execute(array($login, $password));
+		$request = $bdd->prepare("SELECT * FROM Authentification WHERE Login = ? AND password = ? AND Ip = ?");
+		$request->execute(array($login, $password, $headers["Host"]));
 		$data = $request->fetch();
 		$request->closeCursor();
 		if ($data != NULL)

@@ -1,6 +1,8 @@
 <?php
+
 	$login = $_POST["Login"];
 	$password = $_POST["Password"];
+	$headers = apache_request_headers(); //On récupère les headers et on vérifie que l'user est passé par auth.php
 
 	try
 	{
@@ -12,7 +14,7 @@
 	}
 	if ($login != "" && $password != "")
 	{
-		$request = $bdd->query("SELECT * FROM Authentification WHERE Login='$login' AND password='$password'");
+		$request = $bdd->query("SELECT * FROM Authentification WHERE Login='$login' AND password='$password' AND Ip='".$headers["Host"]."'");
 		$data = $request->fetch();
 		$request->closeCursor();
 		if ($data != NULL)

@@ -8,5 +8,62 @@
 		<header>
 			<h1>Cross-Site Scripting (XSS)</h1>
 		</header>
+		<h4>simple Attack Exemple</h4>
+		<p> Form Code: &lt;form method="post" action="Xss.php"&gt; 
+			&lt;input type="text" name="simpleAttack"&gt;
+			&lt;input type="submit" value="Validate"&gt;
+			&lt;/form&gt; <br/>
+			Code Php ==> echo $_POST['simpleAttack']; 
+		</p>
+		<form method="post" action="Xss.php"> 
+			<input type="text" name="simpleAttack" />
+			<input type="submit" value="Validate" />
+		</form>
+		<h4>Url Attack Exemple</h4>
+		<p> code html : &lt;a href="Xss.php?FirstName=Dellaiera&amp;LastName=florian"&gt;Url attack &lt;/a&gt;
+			Code Php ==> echo $_GET['LastName'] . " ". echo $_GET["FirstName"];
+		</p>
+		<a href="Xss.php?FirstName=Dellaiera&amp;LastName=florian">Url attack </a>
+		<h4>Copy Form Attack</h4>
+		<p>
+			Someone can copy the form on local, modify action field and value and inject his script ! Example : <br/>
+			code html : &lt;form method="post" action="http://127.0.0.1/Xss.php"&gt; <br/>
+   			Search : &lt;input type="text" name="value" value="&lt;script&gt;alert('hacked by xss')&lt;/script&gt;" &gt; <br/>
+   			&lt;input type="submit" value="search" /&gt;
+   			Code Php ==> echo $_POST['value'];
+			
+		</p>
+		<form method="post" action="http://127.0.0.1/Xss.php">
+   			Search : <input type="text" name="value" value="<script>alert('hacked by xss')</script>" />
+   			<input type="submit" value="search" />
+		</form>
+		<h3>Solution to fix Xss threats</h3>
+		<p>The purpose of the solution is to neutralizing tags and convert simple and double quotation marks</p>
+		<p>The easiest, fastest and powerful solution is to use the function php htmlspecialchars<p>
+		<p> Form Code: &lt;form method="post" action="Xss.php"&gt; 
+			&lt;input type="text" name="CorrectionsimpleAttack"&gt;
+			&lt;input type="submit" value="Validate"&gt;
+			&lt;/form&gt; <br/>
+			Code Php ==> echo htmlspecialchars($_POST['simpleAttack']); 
+		</p>
+		<form method="post" action="Xss.php"> 
+			<input type="text" name="CorrectionsimpleAttack" />
+			<input type="submit" value="Validate" />
+		</form>
+		<p> code html : &lt;a href="Xss.php?Correction=CorrectionUrl"&gt; Fix Url attack &lt;/a&gt;
+			Code Php ==> echo htmlspecialchars($_GET['Correction']);
+		</p>
+		<a href="Xss.php?Correction=CorrectionUrl">Correction Url attack </a>
+		<p>It's the same result too for the copy form attack</p>
+		<p>
+			code html : &lt;form method="post" action="http://127.0.0.1/Xss.php"&gt; <br/>
+   			Search : &lt;input type="text" name="CorrectionValue" value="&lt;script&gt;alert('hacked by xss')&lt;/script&gt;" &gt; <br/>
+   			&lt;input type="submit" value="search" /&gt; <br/>
+   			Code Php ==> echo htmlspecialchars($_POST['value']);
+		</p>
+		<form method="post" action="http://127.0.0.1/Xss.php">
+   			Search : <input type="text" name="CorrectionValue" value="<script>alert('hacked by xss')</script>" />
+   			<input type="submit" value="search" />
+		</form>
 	</body>
 </html>
